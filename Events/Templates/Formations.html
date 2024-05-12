@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+
+<body> 
+   
+  <main id="main">
+    
+  {% for event in liste_formations %}
+    <section class="services">
+      <div class="container">
+        <ul>
+          <li>{{ event.NomFormation }}</li>
+          <li>{{ event.DescriptionFormation }}</li>
+          <li>{{ event.NomClient }}</li>
+          <li>{{ event.DateFormation }}</li>
+          <li>{{ event.LieuFormation }}</li>
+          <li>{{ event.ResponsableFormation }}</li>
+        </ul>
+      </div>
+    </section>
+  {% endfor %}   
+
+            
+  </main>
+  
+</body>
+
+
+{% endblock %}
+</html>

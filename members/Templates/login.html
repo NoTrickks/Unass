@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+<body> 
+  
+  
+  <main id="main">
+    
+    <!-- ======= Our Services ======= -->
+    <section class="services">
+      <div class="container">
+        <!-- Login/Register Region -->
+    <div class="wrapper">
+      <!-- Login Region -->
+      <div class="form-box login">
+        <h3>Se connecter</h3>
+        <form action="#" method="POST" name="loginRegion">
+          {% csrf_token %}
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input name="username">
+            <label>Adresse mail</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required name="password">
+            <label>Mot de passe</label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox">Se souvenir de moi</label>
+            <a href="#">Mot de passe oublié ?</a>
+          </div>
+          <button type="submit" class="btn">Se connecter</button>
+          <div class="login-register">
+            <p>Vous ne possédez pas de compte ?<a href="{% url 'register' %}" class="register-link">S'inscrire</a></p>
+          </div>
+        </form>
+      </div>
+      <!-- End Login Region -->
+      
+    <!-- End Login/register Region -->
+      
+      </div>
+     </section>
+     <!-- End Our Services -->
+
+            
+  </main>  
+  <!-- End #main -->
+</body>
+
+{% endblock %}
+</html>

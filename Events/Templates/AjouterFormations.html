@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+
+<body> 
+   
+  <main id="main">
+    <section class="services">
+      <div class="container">
+    <center>
+      
+    <h1>Ajouter une formation</h1> 
+    <br/><br/>
+    {% if submitted %}
+    <h2>La formation a correctement été ajoutée, elle est en attente de validation</h2> 
+    {% else %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+    {% endif %}
+    
+      </center>       
+    </div>
+    </section>
+
+  </main>
+  
+</body>
+{% endblock %}
+</html>

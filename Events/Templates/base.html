@@ -1,0 +1,232 @@
+{% load static %}
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Unass Maroc Training and Consulting</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <!-- Favicons -->
+        <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+        <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+      
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+      
+        <!-- Vendor CSS Files -->
+        <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+      
+        <!-- Template Main CSS File -->
+        <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'Login/Styles/Login.css' %}" rel="stylesheet">
+        
+      
+        <!-- =======================================================
+        * Template Name: Moderna - v2.0.1
+        * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+      </head>
+      <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-transparent">
+    <div class="container">
+      <div class="logo float-left">
+        <h1><a href="{% url 'home' %}"><span>Unass Maroc Training and Consulting</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Accueil</a></li>
+          <li><a href="{% url 'publications' %}">Publications</a></li>
+          <li><a href="{% url 'contact' %}">Nous contacter</a></li>          
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'formations' %}">Formations</a></li>
+          <li><a href="{% url 'ajouterformation' %}">Ajouter formation</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'register' %}">S'inscrire</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </ul>
+
+      </nav><!-- .nav-menu -->
+      </div>
+    </div>
+
+    
+  </header><!-- End Header -->
+<!-- =======Sections General / Hero Section ======= -->
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+        {% endif %}
+<section id="hero" class="d-flex justify-cntent-center align-items-center">
+    
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown">Bienvenue Unass Maroc Training and Consulting <span></span></h2>
+          <p class="animated fadeInUp">Nous sommes dévoués à fournir des solutions de formation de qualité pour aider les entreprises et les individus à créer des environnements de travail sûrs et sains.</p>
+          <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown"></h2>
+          <p class="animated fadeInUp">Nous proposons une gamme complète de formations en santé et sécurité au travail, couvrant divers domaines tels que la prévention des accidents, la gestion des risques, les premiers secours, la sécurité incendie, l'ergonomie, et bien plus encore. Nos programmes sont conçus pour répondre aux besoins spécifiques de différents secteurs d'activité et de niveaux d'expérience.</p>
+          <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animated fadeInDown"></h2>
+          <p class="animated fadeInUp">Nos formateurs sont des experts qualifiés et expérimentés dans le domaine de la santé et sécurité au travail. Leur expérience pratique et leurs connaissances approfondies garantissent des sessions de formation engageantes et informatives.</p>
+          <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>      
+    </div>
+    
+  </section><!-- End Hero -->
+        
+      {% block content %}
+      {% endblock %}
+
+      <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+        <div class="footer-newsletter">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>Nos Newsletter</h4>
+                <p>Abonnez-vous, chaque mois, recevez le meilleur de l'Unass Maroc Training and Consulting dans votre boîte E-Mail</p>
+              </div>
+                        <div class="col-lg-6">
+                <form action="" method="post">
+                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Liens utiles</h4>
+                
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Nos Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Formation</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Secourisme</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Solidarité</a></li>
+                  
+                  </ul>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h4>Nous contacter</h4>
+                <p>
+                  Avenue Tabarani Nr 20 Hay El Wahda 01<br>
+                  Laayoune, 70000<br>
+                  Maroc <br><br>
+                  <strong>Phone:</strong> +212 661103661<br>
+                  <strong>Email:</strong> unassmaroc.tc@unassmaroc.com<br>
+                </p>
+    
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-info">
+                <h3>Sur Unass Maroc Training and Consulting</h3>
+                <p>Unass Maroc Training and Consulting offre une gamme de services liés à la formation et au conseil.</p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+    
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Unass Maroc Training and Consulting </span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+            
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+        
+    
+              
+    
+             
+    
+          
+    
+      <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    
+      <!-- Vendor JS Files -->
+      <script src="{% static 'Login/Styles/Login.js' %}"></script>
+      <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+      <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+      
+    
+      <!-- Template Main JS File -->
+      <script src="{% static 'assets/js/main.js' %}"></script>
+    
